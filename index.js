@@ -1,4 +1,3 @@
-// let balance = 500.00;
 
 class Account {
   constructor(username) {
@@ -7,26 +6,24 @@ class Account {
   }
 }
 
-class Deposit {
-
-  // Pass in the account that the deposit this for
+//superclass
+class Transaction {
   constructor(amount, account) {
     this.amount = amount;
     this.account = account;
   }
+}
 
-  // Update the balance in the account
+//subclass of Transaction
+class Deposit extends Transaction {
+
   commit() {
     this.account.balance += this.amount;
   }
 }
 
-class Withdrawal {
-
-  constructor(amount, account) {
-    this.amount = amount;
-    this.account = account;
-  }
+//subclass of Transaction
+class Withdrawal extends Transaction {
 
   commit() {
     this.account.balance -= this.amount;
